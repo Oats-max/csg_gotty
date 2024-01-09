@@ -13,7 +13,7 @@ endif
 export CGO_ENABLED=0
 
 gotty: main.go server/*.go webtty/*.go backend/*.go Makefile
-	go build ${BUILD_OPTIONS}
+	GOOS=linux  GOARCH=arm64 go build ${BUILD_OPTIONS}
 
 docker:
 	docker build . -t gotty-bash:$(VERSION)
