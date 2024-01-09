@@ -12,23 +12,11 @@ endif
 
 export CGO_ENABLED=0
 
-gotty: main.go assets server/*.go webtty/*.go backend/*.go Makefile
+gotty: main.go server/*.go webtty/*.go backend/*.go Makefile
 	go build ${BUILD_OPTIONS}
 
 docker:
 	docker build . -t gotty-bash:$(VERSION)
-
-.PHONY: all docker assets
-assets: bindata/static/js/gotty.js.map \
-	bindata/static/js/gotty.js \
-	bindata/static/index.html \
-	bindata/static/icon.svg \
-	bindata/static/favicon.ico \
-	bindata/static/css/index.css \
-	bindata/static/css/xterm.css \
-	bindata/static/css/xterm_customize.css \
-	bindata/static/manifest.json \
-	bindata/static/icon_192.png
 
 all: gotty
 
