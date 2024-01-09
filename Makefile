@@ -1,7 +1,7 @@
 OUTPUT_DIR = ./builds
 GIT_COMMIT = `git rev-parse HEAD | cut -c1-7`
 VERSION ="v1.5.0"
-BUILD_OPTIONS = -trimpath-ldflags "-X main.Version=$(VERSION)"
+BUILD_OPTIONS = -trimpath -ldflags "-X main.Version=$(VERSION)"
 
 ifeq ($(DEV), 1)
 	BUILD_OPTIONS += -tags dev
