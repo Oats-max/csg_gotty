@@ -1,6 +1,6 @@
 OUTPUT_DIR = ./builds
 GIT_COMMIT = `git rev-parse HEAD | cut -c1-7`
-VERSION = $(shell git describe --tags)
+VERSION ="v1.5.0"
 BUILD_OPTIONS = -ldflags "-X main.Version=$(VERSION)"
 
 ifeq ($(DEV), 1)
@@ -12,7 +12,7 @@ endif
 
 export CGO_ENABLED=0
 
-gotty: main.go assets server/*.go webtty/*.go backend/*.go Makefile
+gotty: main.go server/*.go webtty/*.go backend/*.go Makefile
 	go build ${BUILD_OPTIONS}
 
 docker:
