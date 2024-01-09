@@ -1,6 +1,6 @@
-module github.com/sorenisanerd/gotty
+module github.com/Oats-max/csg_gotty
 
-go 1.20
+go 1.19
 
 require (
 	github.com/NYTimes/gziphandler v1.1.1
@@ -8,6 +8,7 @@ require (
 	github.com/fatih/structs v1.1.0
 	github.com/gorilla/websocket v1.4.2
 	github.com/pkg/errors v0.9.1
+	github.com/sorenisanerd/gotty v1.5.0
 	github.com/urfave/cli/v2 v2.3.0
 	github.com/yudai/hcl v0.0.0-20151013225006-5fa2393b3552
 )
