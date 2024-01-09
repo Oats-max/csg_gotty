@@ -12,7 +12,7 @@ endif
 
 export CGO_ENABLED=0
 
-gotty: main.go server/*.go webtty/*.go backend/*.go Makefile
+gotty: main.go assets server/*.go webtty/*.go backend/*.go Makefile
 	go build ${BUILD_OPTIONS}
 
 docker:
@@ -43,18 +43,6 @@ bindata/static/css/%.css: resources/%.css | bindata/static
 
 bindata/static/css/xterm.css: js/node_modules/xterm/css/xterm.css | bindata/static
 	cp "$<" "$@"
-
-js/node_modules/xterm/dist/xterm.css:
-	cd js && \
-	npm install
-
-bindata/static/js/gotty.js.map bindata/static/js/gotty.js: js/src/* | js/node_modules/webpack
-	cd js && \
-	npx webpack --mode=$(WEBPACK_MODE)
-
-js/node_modules/webpack:
-	cd js && \
-	npm install
 
 README-options:
 	./gotty --help | sed '1,/GLOBAL OPTIONS/ d' > options.txt.tmp
