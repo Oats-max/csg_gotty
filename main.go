@@ -10,7 +10,7 @@ import (
 	"strings"
 	"syscall"
 
-	cli "github.com/urfave/cli/v2"
+	"github.com/urfave/cli/v2"
 
 	"github.com/sorenisanerd/gotty/backend/localcommand"
 	"github.com/sorenisanerd/gotty/pkg/homedir"
